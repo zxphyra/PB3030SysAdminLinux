@@ -1,14 +1,20 @@
 #!/bin/bash
 
+source SystemAdminFunctions.sh
+
+# Function to choose which operation to do in user management.
+# The read variable is in the SystemAdmin.sh file.
 userChoiceFunction(){
     case $user_choice in
         1)
             echo "You have chosen to create or delete a group."
-            # Group management function.
+            # Calls the function tho choose to create or delete group.
+            groupCreateDelete
             ;;
         2)
             echo "You have chosen to create or delete a user."
-            # User management function.
+            # Calls the function to choose to create or delete user.
+            userCreateDelete
             ;;
         3)
             echo "You have chosen to change the group of an individual user."
@@ -23,6 +29,8 @@ userChoiceFunction(){
         esac
 }
 
+# Function to choose to start or stop web server.
+# The read variable is in the SystemAdmin.sh file.
 webserverChoiceFunction(){
     case $webserver_choice in
         1)
@@ -37,4 +45,54 @@ webserverChoiceFunction(){
             echo "Invalid choice."
             ;;
         esac
+}
+
+# Function to choose to create or delete groups.
+groupCreateDelete(){
+    echo "Type your desired operation into the terminal: "
+
+    echo "1: Create new group."
+    echo "2: Delete existing group."
+
+    read choiceCreateDeleteGroup
+
+    case $choiceCreateDeleteGroup in
+        1)
+            echo "You have chosen to create a new group."
+            # Calls the function that creates a group.
+            # Function location is in SystemAdministrationFunctions.sh file.
+            createGroup
+            ;;
+        2)
+            echo "You have chosen to delete an existing group."
+            # Delete group function
+            ;;
+        *)
+            echo "Invalid choice."
+            ;;
+    esac
+}
+
+# Function to choose to create or delete user.
+userCreateDelete(){
+    echo "Type your desired operation into the terminal: "
+
+    echo "1: Create new user."
+    echo "2: Delete existing user."
+
+    read choiceCreateDeleteUser
+
+    case $choiceCreateDeleteUser in
+        1)
+            echo "You have chosen to create a new user."
+            # Create user function
+            ;;
+        2)
+            echo "You have chosen to delete an existing user."
+            # Delete user function
+            ;;
+        *)
+            echo "Invalid choice."
+            ;;
+    esac
 }

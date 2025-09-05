@@ -1,6 +1,7 @@
 #!/bin/bash
 
 source SystemAdministrationChoiceFunctions.sh
+source SystemAdminFunctions.sh
 
 echo "Welcome to the system administrator management program."
 echo "You will now get some options for different operations."
