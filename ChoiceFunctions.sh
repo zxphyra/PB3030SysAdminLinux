@@ -3,6 +3,7 @@
 # Sources:
 source CreateGroupFunction.sh
 source DeleteGroupFunction.sh
+source NewUserFunction.sh
 
 # Function to choose which operation to do in user management.
 # The read variable is in the SystemAdmin.sh file.
@@ -89,7 +90,9 @@ userCreateDelete(){
     case $choiceCreateDeleteUser in
         1)
             echo "You have chosen to create a new user."
-            # Create user function
+            # Calls function that can create new user.
+            # Function located in NewUserFunction.sh-file"
+            newUser
             ;;
         2)
             echo "You have chosen to delete an existing user."
