@@ -1,8 +1,9 @@
 #!/bin/bash
 
-source SystemAdministrationChoiceFunctions.sh
-source SystemAdminFunctions.sh
+#Sources:
+source ChoiceFunctions.sh
 
+# General greeting to user.
 echo "Welcome to the system administrator management program."
 echo "You will now get some options for different operations."
 echo "Type the number of the operation you wish to do into the terminal: "
@@ -13,7 +14,7 @@ echo "3: Review Logs"
 
 read choice
 
-
+# User chooses what they wish to manage.
 case $choice in
     1)
         echo "You have chosen user management."
@@ -27,6 +28,8 @@ case $choice in
 
         read user_choice
 
+        # Calls the function for choosing what user management operation to do.
+        # Function location is in ChoiceFunctions.sh-file.
         userChoiceFunction
         ;;
     2)
@@ -39,6 +42,8 @@ case $choice in
 
         read webserver_choice
 
+        # Calls the function for choosing webserver operations.
+        # Function location is in the ChoiceFunctions.sh-file.
         webserverChoiceFunction
         ;;
     3)

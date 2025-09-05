@@ -1,6 +1,8 @@
 #!/bin/bash
 
-source SystemAdminFunctions.sh
+# Sources:
+source CreateGroupFunction.sh
+source DeleteGroupFunction.sh
 
 # Function to choose which operation to do in user management.
 # The read variable is in the SystemAdmin.sh file.
@@ -60,12 +62,14 @@ groupCreateDelete(){
         1)
             echo "You have chosen to create a new group."
             # Calls the function that creates a group.
-            # Function location is in SystemAdministrationFunctions.sh file.
+            # Function location is in CreateGroupFunction.sh-file.
             createGroup
             ;;
         2)
             echo "You have chosen to delete an existing group."
-            # Delete group function
+            # Calls the function that deletes a group.
+            # Function location is in DeleteGroupFunction.sh-file.
+            deleteGroup
             ;;
         *)
             echo "Invalid choice."
