@@ -2,6 +2,7 @@
 
 #Sources:
 source ChoiceFunctions.sh
+source AuditingFunction.sh
 
 # General greeting to user.
 echo "Welcome to the system administrator management program."
@@ -10,7 +11,7 @@ echo "Type the number of the operation you wish to do into the terminal: "
 
 echo "1: User Management."
 echo "2: Webserver Management."
-echo "3: Review Logs"
+echo "3: Auditing"
 
 read choice
 
@@ -47,8 +48,8 @@ case $choice in
         webserverChoiceFunction
         ;;
     3)
-        echo "You have chosen to review logs."
-        # Log function.
+        echo "You have chosen auditing."
+        auditing
         ;;
     *)
         echo "Invalid choice."
