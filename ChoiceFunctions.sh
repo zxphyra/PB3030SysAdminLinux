@@ -6,6 +6,7 @@ source DeleteGroupFunction.sh
 source NewUserFunction.sh
 source DeleteUserFunction.sh
 source AddGroupmember.sh
+source RemoveGroupmember.sh
 
 # Function to choose which operation to do in user management.
 # The read variable is in the SystemAdmin.sh file.
@@ -123,13 +124,14 @@ changeGroup(){
         1)
             echo "You have chosen to add a user to a group"
             # Calls function that adds user to a group.
-            #Function located in AddGroupmember.sh
+            #Function located in AddGroupmember.sh.
             addGroupmember
             ;;
         2)
             echo "You have chosen to remove a user from a group."
             # Calls function that removes a user from a group.
-            #Function located in ???
+            #Function located in RemoveGroupmember.sh.
+            removeGroupmember
             ;;
         *)
             echo "Invalid choice."
