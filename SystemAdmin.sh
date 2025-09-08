@@ -24,7 +24,7 @@ case $choice in
 
         echo "1: Create or delete group."
         echo "2: Create or delete user."
-        echo "3: Change group for an individual user."
+        echo "3: Add user to a group or remove user from a group."
         echo "4: Change authentication method for an individual user."
 
         read user_choice

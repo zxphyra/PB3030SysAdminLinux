@@ -6,7 +6,7 @@ newUser(){
     echo "Type in the username of the new user into the terminal: "
     read newUsername
 
-getent passwd "$newUsername" >/dev/null
+    getent passwd "$newUsername" >/dev/null
     exitCode=$?
     
     case $exitCode in
