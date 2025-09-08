@@ -4,6 +4,7 @@
 source CreateGroupFunction.sh
 source DeleteGroupFunction.sh
 source NewUserFunction.sh
+source DeleteUserFunction.sh
 
 # Function to choose which operation to do in user management.
 # The read variable is in the SystemAdmin.sh file.
@@ -96,7 +97,9 @@ userCreateDelete(){
             ;;
         2)
             echo "You have chosen to delete an existing user."
-            # Delete user function
+            # Calls function that can delete existing user.
+            # Function located in DeleteUserFunction.sh-file.
+            deleteUser
             ;;
         *)
             echo "Invalid choice."
