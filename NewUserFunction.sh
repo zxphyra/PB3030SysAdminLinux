@@ -29,6 +29,10 @@ newUser(){
             sudo passwd $newUsername
 
             echo "User $newUsername has successfully been created."
+
+            # Send email to new user
+            header="Welcome $newUsername!"
+            body=
             ;;
         3)
             # Exit code 3 means enumeration error.
