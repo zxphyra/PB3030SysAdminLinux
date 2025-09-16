@@ -3,28 +3,23 @@
 # Function for auditing registered users and their last login.
 # Function is called in SystemAdmin.sh-file.
 auditing(){
-    echo "Type your desired operation into the terminal: "
+    # Make an array of users:
+    userArray=($(cat /etc/passwd | grep '/home' | cut -d: -f1))
 
-    echo "1: List last log ins."
-    echo "2: List users with username, UID, and group."
+    for user in "${userArray[@]}"; do
+        echo "User $user: "
 
-    read auditingChoice
+        groupArray=($(grep $user /etc/group | cut -d: -f1))
+        for group in "${groupArray[@]}"; do
+            if [ "$group" == "$user" ]; then
+                echo "Member in: $group (primary group)"
+            else
+                echo "Member in: $group"
+            fi
+        done
 
-    case $auditingChoice in
-        1)
-            echo "You have chosen to see a list of log ins: "
+    # To separate the outputs of users more clearly
+    echo "---"
 
-            echo "Viewing users by: "
-            echo "| name | session |   hostname       |   date and time   |     logout      |"
-
-            last | grep -v "reboot"
-            ;;
-        2)
-            echo "You have chosen to list users."
-            cat /etc/passwd | awk -F: 'print "User: " $1 ", UID: " 
-            ;;
-        *)
-            echo "Invalid choice."
-            ;;
-        esac
+    done
 }
