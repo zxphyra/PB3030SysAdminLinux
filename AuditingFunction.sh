@@ -4,7 +4,7 @@
 # Function is called in SystemAdmin.sh-file.
 auditing(){
     # Make an array of users:
-    userArray=($(cat /etc/passwd | grep '/home' | cut -d: -f1))
+    userArray=($(cat /etc/passwd | awk -F: '($3 >= 1000 && $3 <= 2000){ print $1 }'))
     
     # Loop through the array to create an appropriate output:
     for user in "${userArray[@]}"; do
