@@ -10,24 +10,34 @@ auditing(){
     for user in "${userArray[@]}"; do
         echo "User $user: "
 
-        # Loop through the groups user is in:
-        # Cutting out everyting except the group name.
+        # Print the users UID:
+        userUid=$(cat /etc/passwd | grep $user | awk -F: '{ print $3 }')
+        echo "UID: $userUid"
+
+        # Make an array for the groups the user is in:
         groupArray=($(grep $user /etc/group | cut -d: -f1))
-        # Looping through groups to display output:
+
+        # Loop through the groups the user is in:
         for group in "${groupArray[@]}"; do
+
+            # Saving the GID in a variable:
+            groupGid=$(getent group $group | cut -d: -f3)
+
+            # If statement for dividing between groups and primary groups:
             if [ "$group" == "$user" ]; then
                 # Different output for primary group for readability:
-                echo "Member in: $group (primary group)"
+                echo "Primary group: $group (GID: $groupGid)"
             else
-                echo "Member in: $group"
+                echo "Member in: $group (GID: $groupGid)"
             fi
         done
 
         # Command to display login/-outs for the user:
+        # Too long command but logs are binary.
         last -R | grep $user | awk '{print "Logged in from: ", $2, "|", "Date: ", $3, $4, $5, "|", "Login/logout time: ", $6, $7, $8, $9}' | column -ts '|'
 
     # To separate the outputs between users more clearly:
-    echo "---"
+    echo "-------"
 
     done
 }
