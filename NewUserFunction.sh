@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source SystemEmail.txt
+
 # Function for creating new user.
 # Function called in ChoiceFunctions.sh-file.
 newUser(){
@@ -26,11 +28,12 @@ newUser(){
 
             echo "User $newUsername has successfully been created."
 
-            # Send email to new user
             emailSubject="Welcome $newUsername!"
-            emailBody="This is an automated system email."
 
-            echo "$emailBody" | mail -s "$emailSubject" $newUsername
+            # Send email to new user:
+            # Use SystemEmail.txt as the body of the email.
+            mail -s "$emailSubject" $newUsername < SystemEmail.txt
+            
             echo "Welcome email sent to $newUsername."
             ;;
         3)
