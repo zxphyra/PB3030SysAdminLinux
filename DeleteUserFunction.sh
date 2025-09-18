@@ -13,7 +13,7 @@ deleteUser(){
         0)
             # Exit code 0 means success.
             # This means the user exists and can be deleted.
-            sudo deluser $deleteUser
+            sudo deluser --remove-home $deleteUser
             echo "User $deleteUser has successfully been deleted."
             ;;
         1)
