@@ -7,6 +7,7 @@ source NewUserFunction.sh
 source DeleteUserFunction.sh
 source AddGroupmember.sh
 source RemoveGroupmember.sh
+source Authentication.sh
 
 # Function to choose which operation to do in user management.
 # The read variable is in the SystemAdmin.sh file.
@@ -30,7 +31,9 @@ userChoiceFunction(){
             ;;
         4)
             echo "You have chosen to change authentication method for a user."
-            # User authentication function.
+            # Calls the function for adding 2FA for individual user.
+            # Function located in Authentication.sh.
+            googleAuthentication
             ;;
         *)
             echo "Invalid choice."
