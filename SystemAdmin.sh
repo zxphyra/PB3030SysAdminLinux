@@ -3,6 +3,7 @@
 #Sources:
 source ChoiceFunctions.sh
 source AuditingFunction.sh
+source StartStopWebServer.sh
 
 # General greeting to user.
 echo "Welcome to the system administrator management program."
@@ -35,17 +36,9 @@ case $choice in
         ;;
     2)
         echo "You have chosen webserver management."
-        echo "You will be given two options."
-        echo "Type in the number of the operation you wish to do into the terminal: "
-
-        echo "1: Start web server."
-        echo "2: Stop web server."
-
-        read webserver_choice
-
-        # Calls the function for choosing webserver operations.
-        # Function location is in the ChoiceFunctions.sh-file.
-        webserverChoiceFunction
+        # Calls the function for managing the Web Server.
+        # Function located in StartStopWebserver.sh-file
+        webServerFunction
         ;;
     3)
         echo "You have chosen auditing."

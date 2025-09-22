@@ -40,23 +40,6 @@ userChoiceFunction(){
         esac
 }
 
-# Function to choose to start or stop web server.
-# The read variable is in the SystemAdmin.sh file.
-webserverChoiceFunction(){
-    case $webserver_choice in
-        1)
-            echo "You have chosen to start the webserver."
-            # Webserver start function.
-            ;;
-        2)
-            echo "You have chosen to stop the webserver."
-            # Webserver stop function.
-            ;;
-        *)
-            echo "Invalid choice."
-            ;;
-        esac
-}
 
 # Function to choose to create or delete groups.
 groupCreateDelete(){
