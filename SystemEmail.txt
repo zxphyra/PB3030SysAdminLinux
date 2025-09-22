@@ -1,15 +1,18 @@
 Welcome to the system!
 
-This file contains essential information about the system and its routines.
-Please read the information provided carefully.
-
+This email contains essential information about the system and its routines.
+Please read the information provided carefully to ensure the best user experience.
 
 System information:
+* hhh
+* hhh
 
 System routines:
-
+* hhh
+* hhh
 
 We look forward to working with you!
+Please let us know if you have any questions whatsoever.
 
 
 Best regards,

@@ -16,16 +16,15 @@ googleAuthentication(){
             echo "The user exists."
 
             # Check if the user has the .google_authenticator file already
-            sudo test -f ~$authUser/.google_authenticator && echo "yes" || echo "no"
-            read authExists
-
-            if [ $authExists == "yes"]; then
-                echo "User already has 2FA"
-            elif [ $authExists == "no" ]; then
-                echo "User does not have 2FA"
+            sudo ls -l /home/$authUser/.google_authenticator >/dev/null
+            authCheck=$?
+            
+            if [ "$authCheck" == "0" ]; then
+                echo "User $authUser is already using Google Authenticator."
             else
-                echo "An error occured."
+                echo "No 2FA"
             fi
+
             ;;
         1)
             # Exit code 1 means missing arguments.
