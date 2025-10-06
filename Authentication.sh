@@ -20,8 +20,10 @@ googleAuthentication(){
             authCheck=$?
             
             if [ "$authCheck" == "0" ]; then
+                # User already has 2FA enabled.
                 echo "User $authUser is already using Google Authenticator."
             else
+                # User does not have 2FA enabled.
                 echo "No 2FA"
             fi
 
