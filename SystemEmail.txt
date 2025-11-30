@@ -3,17 +3,15 @@ Welcome to the system!
 This email contains essential information about the system and its routines.
 Please read the information provided carefully to ensure the best user experience.
 
-System information:
-* hhh
-* hhh
-
-System routines:
-* hhh
-* hhh
+- Keep your password private.
+- Do not let anyone use your account or computer.
+- Do not share files you have access to with other users.
+- Inform the system administrator of any discovered faults in the system.
+- Let your others know if they are using the system incorrectly.
 
 We look forward to working with you!
 Please let us know if you have any questions whatsoever.
 
 
 Best regards,
-The System Administrator Team
+The System Administrator

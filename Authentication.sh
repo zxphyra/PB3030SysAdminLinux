@@ -13,10 +13,9 @@ googleAuthentication(){
         0)
             # Exit code 0 means success.
             # This means the username exists and 2FA can be anabled for them.
-            echo "The user exists."
 
-            # Check if the user has the .google_authenticator file already
-            sudo ls -l /home/$authUser/.google_authenticator >/dev/null
+            # Check if the user has the .google_authenticator file already and supress ls error
+            sudo ls -l /home/$authUser/.google_authenticator >/dev/null 2>&1
             authCheck=$?
             
             if [ "$authCheck" == "0" ]; then
@@ -24,7 +23,13 @@ googleAuthentication(){
                 echo "User $authUser is already using Google Authenticator."
             else
                 # User does not have 2FA enabled.
-                echo "No 2FA"
+                echo "Setting up Google Authenticator for $authUser."
+                echo "Please add user to Google Authenticator app by scanning the QR code on screen:"
+
+                # Command to set up Google Authenticator.
+                sudo -u "$authUser" -H google-authenticator -t -d -f -r 3 -R 30 -W 
+
+                echo "Google Authenticator set up for $authUser."
             fi
 
             ;;

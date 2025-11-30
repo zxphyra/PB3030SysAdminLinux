@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source SystemEmail.txt
+
 
 # Function for creating new user.
 # Function called in ChoiceFunctions.sh-file.
